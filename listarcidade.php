@@ -17,8 +17,8 @@
 
     ?>
 
-    <h1>Consuta de cidades</h1>
-    <table align="center" border="1" width="500" style="background-color: bisque;">
+    <h1 style="text-align: center;">Consuta de cidades</h1>
+    <table align="center" border="1" width="500" style="background-color: lightblue;">
         <tr>
             <th>Código</th>
             <th>Nome</th>
@@ -31,6 +31,10 @@
                 echo "<td>".$row['id']."</td>";
                 echo "<td>".$row['nome']."</td>";
                 echo "<td>".$row['estado']."</td>";
+                echo "<td><a href = 'alteracidade.php?id=".$row['id']."'>Alterar<a/></td>
+                </td>";
+                echo "<td><a href = 'deletacidade.php?id=".$row['id']."'>Deletar<a/></td>
+                </td>";
                 echo "</tr>";
             }
 
