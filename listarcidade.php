@@ -9,7 +9,7 @@
 <body style="background-color: azure;">
     <?php
 
-    include("includes/conexao.php");
+    include("include/conexao.php");
 
     $sql = "SELECT * FROM cidade";
     //executa consulta
