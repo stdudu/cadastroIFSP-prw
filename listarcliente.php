@@ -11,32 +11,36 @@
 
     include("include/conexao.php");
 
-    $sql = "SELECT * FROM cidade";
+    $sql = "SELECT * FROM cliente";
     //executa consulta
     $result = mysqli_query($con, $sql);
 
     ?>
 
-    <h1 style="text-align: center;">Consuta de cidades</h1>
+    <h1 style="text-align: center;">Consulta de Clientes</h1>
     <table align="center" border="1" width="500" style="background-color: lightblue;">
         <tr>
-            <th>Código</th>
+            <th>CPF</th>
             <th>Nome</th>
-            <th>Estado</th>
+            <th>Email</th>
+            <th>Senha</th>
         </tr>
 
         <?php //mysqli_fetch_array le uma linha por vez
             while($row = mysqli_fetch_array($result)) {
                 echo "<tr>";
-                echo "<td>".$row['id']."</td>";
+                echo "<td>".$row['cpf']."</td>";
                 echo "<td>".$row['nome']."</td>";
-                echo "<td>".$row['estado']."</td>";
-                echo "<td><a href = 'alteracidade.php?id=".$row['id']."'>Alterar<a/></td>
+                echo "<td>".$row['email']."</td>";
+                echo "<td>".$row['senha']."</td>";
+                echo "<td>".$row['senha']."</td>";
+                echo "<td><a href = 'alteracliente.php?id=".$row['cpf']."'>Alterar<a/></td>
                 </td>";
-                echo "<td><a href = 'deletacidade.php?id=".$row['id']."'>Deletar<a/></td>
+                echo "<td><a href = 'deletacidade.php?id=".$row['cpf']."'>Deletar<a/></td>
                 </td>";
                 echo "</tr>";
             }
+
         ?>
     </table>
 </body>
