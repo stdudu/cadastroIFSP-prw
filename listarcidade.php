@@ -23,6 +23,8 @@
             <th>Código</th>
             <th>Nome</th>
             <th>Estado</th>
+            <th>Alterar</th>
+            <th>Deletar</th>
         </tr>
 
         <?php //mysqli_fetch_array le uma linha por vez

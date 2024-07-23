@@ -1,10 +1,10 @@
 <?php
     include('include/conexao.php');
-    $cpf = $_POST['cpf'];
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-
+    $ativo = $_POST['ativo'] == "sim" ? true : false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,15 +18,16 @@
     <h1>Alterando Cliente</h1>
     <?php
         echo "<p>ID: $id</p>";
-        echo "<p>CPF: $cpf</p>";
         echo "<p>Nome: $nome</p>";
         echo "<p>Email: $email</p>";
         echo "<p>Senha: $senha</p>";
+        echo "<p>Ativo: " . $ativo ? "Sim" : "Não". "</p>";
+        $ativo = $ativo ? 0 : 1;
         $sql = "UPDATE cliente SET
-                    cpf = '$cpf',
                     nome = '$nome',
-                    email = '$email'
-                    senha = '$senha'
+                    email = '$email',
+                    senha = '$senha',
+                    ativo = '$ativo'
                 WHERE id = $id";
         $result = mysqli_query($con, $sql);
         if($result){

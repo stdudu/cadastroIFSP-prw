@@ -1,7 +1,7 @@
 <?php
     include('include/conexao.php');
     $id = $_GET['id'];
-    $sql = "SELECT * FROM Cliente WHERE id=$id";
+    $sql = "SELECT * FROM cliente WHERE id=$id";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
 ?>
@@ -18,22 +18,28 @@
         <fieldset>
             <legend>Cadastro Cidade</legend>
             <div>
-                <label for="cpf">ID</label>
-                <input type="number" name="nome" id="cpf" value="<?php echo $row['cpf']?>">
-            </div>
-            <div>
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" id="nome" value="<?php echo $row['nome']?>">
             </div>
+            <br>
             <div>
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" value="<?php echo $row['email']?>">
             </div>
+            <br>
             <div>
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" value="<?php echo $row['senha']?>">
             </div>
             <br>
+            <div>
+                <label for="ativo">Ativo</label>
+                <input type="radio" name="ativo" id="op-sim" value="sim"<?php echo $row['ativo'] == 0 ? "checked" : ""?>><label>Sim</label>
+            </div>
+            <div>
+                <label for="ativo">Ativo</label>
+                <input type="radio" name="ativo" id="op-nao" value="nao"<?php echo $row['senha'] == 0 ? "checked" : ""?>><label>Não</label>
+            </div>
             <br>
             <div>
                 <input type="hidden" name="id" 

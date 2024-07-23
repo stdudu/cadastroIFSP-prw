@@ -6,27 +6,26 @@
     <title>Formulário de cadastro da cidade</title>
 </head>
 <body>
-    <form action="cadastrocidade.php" method="post">
-        <fieldset>
-            <legend>Cadastro Cidade</legend>
-            <div>
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome">
+    <form class="container" action="cadastrocidade.php" method="post">
+        <div class="card">
+            <a class="singup">Cadastrar Cidade</a>
+            <div class="inputbox1">
+                <input  type="text" name="nome" id="nome">
+                <span>Nome</span>
             </div>
             <br>
-            <div>
-                <label for="estado">Estado</label>
-                <select name="estado" id="estado">
+            <div class="inputbox">
+                <span>Estado</span>
+                <select  name="estado" id="estado">
                     <option value="SP">SP</option>
                     <option value="RJ">RJ</option>
                     <option value="MG">MG</option>
                 </select>
             </div>
             <br>
-            <div>
-                <button type="submit">Cadastrar</button>
-            </div>
+                <button class="enter" type="submit">Cadastrar</button>
         </fieldset>
+    </div>
     </form>
 </body>
 </html>

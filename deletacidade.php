@@ -11,7 +11,7 @@
     <?php
         include('include/conexao.php');
         $id = $_GET['id'];
-        $sql = "DELETE FROM cidade WHERE id = $cpf";
+        $sql = "DELETE FROM cidade WHERE id = $id";
         $result = mysqli_query($con, $sql);
         if($result){
             echo "<h2>Dados deletados!</h2>";

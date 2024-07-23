@@ -14,17 +14,21 @@
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
+        $ativo = $_POST['ativo'] == "sim" ? true : false;
+        $cidade = $_POST['cidade'];
 
         echo "<h1>Dados do cliente<h1>";
         echo "Nome: $nome<br>";
         echo "Email: $email<br>";
         echo "Senha: $senha<br>";
+        echo "Ativo: " . $ativo ? "Sim" : "Não". "<br>";
 
         //INSERT INTO cidade (nome, estado)
         //VALUES ('$nome', '$estado')
 
-        $sql = "INSERT INTO cliente (nome, email, senha)";
-        $sql .= "VALUES ('".$nome."','".$email."', '".$senha."')";
+        $sql = "INSERT INTO cliente (nome, email, senha, id_cidade, ativo)";
+        $ativo = $ativo ? 0 : 1;
+        $sql .= "VALUES ('".$nome."','".$email."', '".$senha."',".$ativo.", ".$cidade.")";
         echo $sql;
 
         //executa comando no banco de dados

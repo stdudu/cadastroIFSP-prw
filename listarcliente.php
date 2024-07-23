@@ -11,36 +11,42 @@
 
     include("include/conexao.php");
 
-    $sql = "SELECT * FROM cliente";
+    $sql = "SELECT cli.id, cli.nome nomecliente, cli.email, cli.ativo, cid.nome nomecidade, cid.estado
+    FROM cliente cli 
+    LEFT JOIN cidade cid on cid.id = cli.id_cidade";
     //executa consulta
     $result = mysqli_query($con, $sql);
 
     ?>
-
-    <h1 style="text-align: center;">Consulta de Clientes</h1>
-    <table align="center" border="1" width="500" style="background-color: lightblue;">
+    <h1 style="text-align: center;">Consulta de clientes</h1>
+    <table align="center" border="1" width="700" style="background-color: lightblue;">
         <tr>
-            <th>CPF</th>
+            <th>Código</th>
             <th>Nome</th>
             <th>Email</th>
-            <th>Senha</th>
+            <th>Ativo</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Alterar</th>
+            <th>Deletar</th>
         </tr>
 
         <?php //mysqli_fetch_array le uma linha por vez
             while($row = mysqli_fetch_array($result)) {
+                $ativo = $row['ativo'] == 0 ? "Sim" : "Não";
                 echo "<tr>";
-                echo "<td>".$row['cpf']."</td>";
-                echo "<td>".$row['nome']."</td>";
+                echo "<td>".$row['id']."</td>";
+                echo "<td>".$row['nomecliente']."</td>";
                 echo "<td>".$row['email']."</td>";
-                echo "<td>".$row['senha']."</td>";
-                echo "<td>".$row['senha']."</td>";
-                echo "<td><a href = 'alteracliente.php?id=".$row['cpf']."'>Alterar<a/></td>
+                echo "<td>".$ativo."</td>";
+                echo "<td>".$row['nomecidade']."</td>";
+                echo "<td>".$row['estado']."</td>";
+                echo "<td><a href = 'alteracliente.php?id=".$row['id']."'>Alterar<a/>
                 </td>";
-                echo "<td><a href = 'deletacidade.php?id=".$row['cpf']."'>Deletar<a/></td>
+                echo "<td><a href = 'deletacliente.php?id=".$row['id']."'>Deletar<a/>
                 </td>";
                 echo "</tr>";
             }
-
         ?>
     </table>
 </body>
